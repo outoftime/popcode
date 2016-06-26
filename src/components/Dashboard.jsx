@@ -52,17 +52,29 @@ class Dashboard extends React.Component {
   }
 
   _renderSubmenuToggleButton(submenu, label) {
+    const isActive = this.props.activeSubmenu === submenu;
+    let renderedSubmenu;
+
+    if (isActive) {
+      renderedSubmenu = (
+        <div className="dashboard-submenuContainer">
+          {this._renderSubmenu()}
+        </div>
+      );
+    }
+
     return (
-      <div
-        className={classnames(
-          'dashboard-menu-item',
-          'dashboard-menu-item--grid',
-          {'dashboard-menu-item--active':
-            this.props.activeSubmenu === submenu}
-        )}
-        onClick={partial(this.props.onSubmenuToggled, submenu)}
-      >
-        {i18n.t(`dashboard.menu.${label}`)}
+      <div className="dashboard-menu-itemContainer">
+        <div
+          className={classnames(
+            'dashboard-menu-item',
+            {'dashboard-menu-item--active': isActive}
+          )}
+          onClick={partial(this.props.onSubmenuToggled, submenu)}
+        >
+          {i18n.t(`dashboard.menu.${label}`)}
+        </div>
+        {renderedSubmenu}
       </div>
     );
   }
@@ -72,7 +84,7 @@ class Dashboard extends React.Component {
     if (this.props.currentUser.authenticated) {
       newProjectButton = (
         <div
-          className="dashboard-menu-item dashboard-menu-item--grid"
+          className="dashboard-menu-item"
           onClick={this._handleNewProject}
         >
           {i18n.t('dashboard.menu.new-project')}
@@ -84,12 +96,12 @@ class Dashboard extends React.Component {
     }
 
     return (
-      <div className="dashboard-menu dashboard-menu--grid">
+      <div className="dashboard-menu">
         {newProjectButton}
         {loadProjectButton}
         {this._renderSubmenuToggleButton('libraryPicker', 'libraries')}
         <div
-          className="dashboard-menu-item dashboard-menu-item--grid"
+          className="dashboard-menu-item"
           onClick={this._handleExportGist}
         >
           {i18n.t('dashboard.menu.export-gist')}
@@ -185,7 +197,6 @@ class Dashboard extends React.Component {
       <div className={sidebarClassnames}>
         {this._renderLoginState()}
         {this._renderMenu()}
-        {this._renderSubmenu()}
         {this._renderPop()}
       </div>
     );
