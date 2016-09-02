@@ -61,7 +61,7 @@ class Preview extends React.Component {
           onClick={this._handlePopOutClick}
         />
         <PreviewFrame
-          src={this._generateDocument(true)}
+          src={this._generateDocument(this.props.isUserTyping)}
           onFrameWillRefresh={this.props.onClearRuntimeErrors}
           onRuntimeError={this.props.onRuntimeError}
         />
@@ -71,6 +71,7 @@ class Preview extends React.Component {
 }
 
 Preview.propTypes = {
+  isUserTyping: React.PropTypes.bool.isRequired,
   isValid: React.PropTypes.bool.isRequired,
   project: React.PropTypes.object.isRequired,
   onClearRuntimeErrors: React.PropTypes.func.isRequired,

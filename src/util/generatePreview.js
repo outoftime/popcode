@@ -1,3 +1,4 @@
+import i18n from 'i18next-client';
 import castArray from 'lodash/castArray';
 import pick from 'lodash/pick';
 import base64 from 'base64-js';

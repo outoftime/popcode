@@ -20,6 +20,7 @@ class Output extends React.Component {
 
     return (
       <Preview
+        isUserTyping={this.props.isUserTyping}
         isValid={this.props.validationState === 'passed'}
         project={this.props.project}
         onClearRuntimeErrors={this.props.onClearRuntimeErrors}
@@ -69,6 +70,7 @@ class Output extends React.Component {
 
 Output.propTypes = {
   errors: React.PropTypes.object.isRequired,
+  isUserTyping: React.PropTypes.bool.isRequired,
   project: React.PropTypes.object,
   runtimeErrors: React.PropTypes.array.isRequired,
   validationState: React.PropTypes.string,

@@ -188,6 +188,7 @@ class Workspace extends React.Component {
     return (
       <Output
         errors={this.props.errors}
+        isUserTyping={this.props.isUserTyping}
         project={this.props.currentProject}
         runtimeErrors={this.props.runtimeErrors}
         validationState={this._getOverallValidationState()}
