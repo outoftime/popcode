@@ -91,7 +91,13 @@ class Dashboard extends React.Component {
         {loadProjectButton}
         {this._renderSubmenuToggleButton('libraryPicker', 'libraries')}
         <div
-          className="dashboard-menu-item dashboard-menu-item--grid"
+          className={
+            classnames(
+              'dashboard-menu-item',
+              'dashboard-menu-item--grid',
+              {'dashboard-menu-item--spinner': this.props.gistExportInProgress}
+            )
+          }
           onClick={this._handleExportGist}
         >
           {i18n.t('dashboard.menu.export-gist')}
@@ -120,18 +126,24 @@ class Dashboard extends React.Component {
     }
 
     const newWindow = open('about:blank', 'gist');
+    newWindow.close();
 
-    Gists.createFromProject(this.props.currentProject, this.props.currentUser).
-      then((response) => {
-        newWindow.location = response.html_url;
-      }, (error) => {
-        if (error instanceof EmptyGistError) {
-          this.props.onEmptyGist();
-          newWindow.close();
-          return Promise.resolve();
-        }
-        return Promise.reject(error);
-      });
+    const gistWillExport = Gists.createFromProject(
+      this.props.currentProject,
+      this.props.currentUser
+    );
+    this.props.onExportingGist(gistWillExport);
+
+    gistWillExport.then((response) => {
+      newWindow.location = response.html_url;
+      newWindow.focus();
+    }, (error) => {
+      if (error instanceof EmptyGistError) {
+        this.props.onEmptyGist();
+        return Promise.resolve();
+      }
+      return Promise.reject(error);
+    });
   }
 
   _renderSubmenu() {
@@ -247,8 +259,10 @@ Dashboard.propTypes = {
   allProjects: React.PropTypes.array.isRequired,
   currentProject: React.PropTypes.object,
   currentUser: React.PropTypes.object.isRequired,
+  gistExportInProgress: React.PropTypes.bool.isRequired,
   validationState: React.PropTypes.string.isRequired,
   onEmptyGist: React.PropTypes.func.isRequired,
+  onExportingGist: React.PropTypes.func.isRequired,
   onLibraryToggled: React.PropTypes.func.isRequired,
   onLogOut: React.PropTypes.func.isRequired,
   onNewProject: React.PropTypes.func.isRequired,

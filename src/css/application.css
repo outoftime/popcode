@@ -246,6 +246,12 @@ body {
   text-align: center;
 }
 
+.dashboard-menu-item--spinner {
+  color: transparent;
+  background: url('/images/spinner.svg') no-repeat center;
+  background-size: contain;
+}
+
 .dashboard-menu-item:hover, .dashboard-menu-item--active {
   background-color: var(--color-gray);
 }
