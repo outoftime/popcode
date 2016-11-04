@@ -51,6 +51,7 @@
     "bugsnag-js": "^3.0.1",
     "classnames": "^2.1.5",
     "css": "^2.2.1",
+    "csslint": "^1.0.4",
     "envify": "^3.4.1",
     "es6-set": "https://registry.npmjs.org/es6-set/-/es6-set-0.1.4.tgz",
     "esprima": "^3.0.0",
