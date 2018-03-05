@@ -30,7 +30,19 @@ module.exports = function(config) {
     webpack: webpackConfiguration('test'),
 
     webpackMiddleware: {
-      stats: 'errors-only',
+      stats: {
+        assets: false,
+        children: false,
+        chunks: true,
+        chunkModules: false,
+        chunkOrigins: false,
+        errors: true,
+        errorDetails: true,
+        hash: false,
+        modules: false,
+        source: false,
+        warnings: true,
+      },
     },
 
     reporters: ['dots'],
