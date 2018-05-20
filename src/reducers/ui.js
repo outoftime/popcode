@@ -22,7 +22,8 @@ const defaultState = new Immutable.Map().
   })).
   set('workspace', DEFAULT_WORKSPACE).
   set('notifications', new Immutable.Map()).
-  set('topBar', new Immutable.Map({openMenu: null}));
+  set('topBar', new Immutable.Map({openMenu: null})).
+  set('archivedViewOpen', false);
 
 function addNotification(state, type, severity, payload = {}) {
   return state.setIn(
@@ -227,6 +228,11 @@ export default function ui(stateIn, action) {
     case 'CANCEL_EDITING_INSTRUCTIONS':
     case 'UPDATE_PROJECT_INSTRUCTIONS':
       return state.setIn(['workspace', 'isEditingInstructions'], false);
+
+    case 'TOGGLE_ARCHIVED_VIEW':
+      return state.update('archivedViewOpen',
+        archivedViewOpen => !archivedViewOpen,
+      );
 
     default:
       return state;

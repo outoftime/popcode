@@ -1,6 +1,10 @@
 import {connect} from 'react-redux';
 import ProjectPreview from '../components/ProjectPreview';
-import {changeCurrentProject} from '../actions';
+import {
+  archiveProject,
+  changeCurrentProject,
+  unArchiveProject,
+} from '../actions';
 import {
   makeGetProjectPreview,
   getCurrentProjectKey,
@@ -23,6 +27,12 @@ function mapDispatchToProps(dispatch, {projectKey}) {
   return {
     onProjectSelected() {
       dispatch(changeCurrentProject(projectKey));
+    },
+    onProjectArchived() {
+      dispatch(archiveProject(projectKey));
+    },
+    onProjectUnArchived() {
+      dispatch(unArchiveProject(projectKey));
     },
   };
 }

@@ -61,6 +61,7 @@ function importGist(state, projectKey, gistData) {
       enabledLibraries: popcodeJson.enabledLibraries || [],
       hiddenUIComponents: popcodeJson.hiddenUIComponents || [],
       instructions: contentForLanguage(files, 'Markdown'),
+      archived: false,
     },
   );
 }
@@ -221,6 +222,18 @@ export default function reduceProjects(stateIn, action) {
         );
       }
       return state;
+
+    case 'ARCHIVE_PROJECT':
+      return state.setIn(
+        [action.payload.projectKey, 'archived'],
+        true,
+      );
+
+    case 'UNARCHIVE_PROJECT':
+      return state.setIn(
+        [action.payload.projectKey, 'archived'],
+        false,
+      );
 
     default:
       return state;

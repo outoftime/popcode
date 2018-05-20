@@ -17,6 +17,8 @@ import {
   toggleComponent,
   updateProjectSource,
   updateProjectInstructions,
+  archiveProject,
+  unArchiveProject,
 } from './projects';
 
 import {
@@ -35,6 +37,7 @@ import {
   closeTopBarMenu,
   startEditingInstructions,
   cancelEditingInstructions,
+  toggleArchivedView,
 } from './ui';
 
 import {
@@ -105,4 +108,7 @@ export {
   projectCompiled,
   projectCompilationFailed,
   gapiClientReady,
+  archiveProject,
+  toggleArchivedView,
+  unArchiveProject,
 };

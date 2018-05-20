@@ -23,7 +23,7 @@ import {
   snapshotNotFound,
   projectRestoredFromLastSession,
 } from '../actions/clients';
-import {saveCurrentProject} from '../util/projectUtils';
+import {saveCurrentProject, saveProjectWithKey} from '../util/projectUtils';
 import {loadGistFromId} from '../clients/github';
 import {loadAllProjects, loadProjectSnapshot} from '../clients/firebase';
 import {getCurrentUserId} from '../selectors';
@@ -112,6 +112,17 @@ export function* projectExported({payload: {exportType}}) {
   }
 }
 
+export function* archiveProject({payload: {projectKey}}) {
+  const state = yield select();
+  yield call(saveProjectWithKey, state, projectKey);
+}
+
+export function* unArchiveProject({payload: {projectKey}}) {
+  const state = yield select();
+  yield call(saveProjectWithKey, state, projectKey);
+}
+
+
 export default function* () {
   yield all([
     takeEvery('APPLICATION_LOADED', applicationLoaded),
@@ -124,5 +135,7 @@ export default function* () {
     ], updateProjectSource),
     takeEvery('USER_AUTHENTICATED', userAuthenticated),
     takeEvery('TOGGLE_LIBRARY', toggleLibrary),
+    takeEvery('ARCHIVE_PROJECT', archiveProject),
+    takeEvery('UNARCHIVE_PROJECT', unArchiveProject),
   ]);
 }

@@ -64,3 +64,13 @@ export const gistImportError = createAction(
 );
 
 export const projectsLoaded = createAction('PROJECTS_LOADED');
+
+export const archiveProject = createAction(
+  'ARCHIVE_PROJECT',
+  projectKey => ({projectKey}),
+);
+
+export const unArchiveProject = createAction(
+  'UNARCHIVE_PROJECT',
+  projectKey => ({projectKey}),
+);

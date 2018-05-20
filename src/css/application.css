@@ -418,8 +418,22 @@ body {
 
 /** @define project-preview */
 
+.project-preview {
+  display: flex;
+  justify-content: space-between;
+}
+
 .project-preview__label {
   white-space: normal;
+}
+
+.project-preview__archive {
+  color: var(--color-light-gray);
+  margin-right: 1em;
+}
+
+.project-preview__archive:hover {
+  color: black;
 }
 
 .project-preview__timestamp {

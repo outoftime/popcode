@@ -20,6 +20,7 @@ import getOpenTopBarMenu from './getOpenTopBarMenu';
 import getProject from './getProject';
 import getRequestedFocusedLine from './getRequestedFocusedLine';
 import isClassroomExportInProgress from './isClassroomExportInProgress';
+import isArchivedViewOpen from './isArchivedViewOpen';
 import isCurrentlyValidating from './isCurrentlyValidating';
 import isCurrentProjectSyntacticallyValid
   from './isCurrentProjectSyntacticallyValid';
@@ -59,6 +60,7 @@ export {
   getProject,
   getRequestedFocusedLine,
   isClassroomExportInProgress,
+  isArchivedViewOpen,
   isCurrentlyValidating,
   isCurrentProjectSyntacticallyValid,
   isDraggingColumnDivider,

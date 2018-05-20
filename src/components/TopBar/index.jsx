@@ -27,6 +27,7 @@ function uiVariants({validationState, isUserTyping}) {
 }
 
 export default function TopBar({
+  archivedViewOpen,
   currentProjectKey,
   currentUser,
   enabledLibraries,
@@ -45,6 +46,7 @@ export default function TopBar({
   isTextSizeLarge,
   openMenu,
   projectKeys,
+  projects,
   validationState,
   onChangeCurrentProject,
   onClickMenu,
@@ -60,6 +62,7 @@ export default function TopBar({
   onStartEditingInstructions,
   onToggleLibrary,
   onToggleTextSize,
+  onToggleViewArchived,
   onUpdateRepo,
 }) {
   const {popVariant, modifier} = uiVariants({validationState, isUserTyping});
@@ -99,10 +102,13 @@ export default function TopBar({
         onClick={onCreateNewProject}
       />
       <ProjectPicker
+        archivedViewOpen={archivedViewOpen}
         currentProjectKey={currentProjectKey}
         isUserAuthenticated={isUserAuthenticated}
         projectKeys={projectKeys}
+        projects={projects}
         onChangeCurrentProject={onChangeCurrentProject}
+        onToggleViewArchived={onToggleViewArchived}
       />
       <CurrentUser
         isOpen={openMenu === 'currentUser'}
@@ -129,6 +135,7 @@ export default function TopBar({
 }
 
 TopBar.propTypes = {
+  archivedViewOpen: PropTypes.bool.isRequired,
   currentProjectKey: PropTypes.string,
   currentUser: PropTypes.object.isRequired,
   enabledLibraries: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -147,6 +154,7 @@ TopBar.propTypes = {
   isUserTyping: PropTypes.bool.isRequired,
   openMenu: PropTypes.string,
   projectKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  projects: PropTypes.array.isRequired,
   validationState: PropTypes.string.isRequired,
   onChangeCurrentProject: PropTypes.func.isRequired,
   onClickMenu: PropTypes.func.isRequired,
@@ -162,6 +170,7 @@ TopBar.propTypes = {
   onStartGoogleLogIn: PropTypes.func.isRequired,
   onToggleLibrary: PropTypes.func.isRequired,
   onToggleTextSize: PropTypes.func.isRequired,
+  onToggleViewArchived: PropTypes.func.isRequired,
   onUpdateRepo: PropTypes.func.isRequired,
 };
 

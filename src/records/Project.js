@@ -20,6 +20,7 @@ export default class Project extends Record({
   updatedAt: null,
   instructions: '',
   externalLocations: new ExternalLocations(),
+  archived: false,
 }) {
   static fromJS({
     projectKey = null,
@@ -29,6 +30,7 @@ export default class Project extends Record({
     updatedAt = null,
     instructions = '',
     externalLocations = {},
+    archived = false,
   }) {
     return new Project({
       projectKey,
@@ -38,6 +40,7 @@ export default class Project extends Record({
       updatedAt,
       instructions,
       externalLocations: new ExternalLocations(externalLocations),
+      archived,
     });
   }
 }

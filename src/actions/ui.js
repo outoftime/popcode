@@ -68,3 +68,7 @@ export const startEditingInstructions = createAction(
 export const cancelEditingInstructions = createAction(
   'CANCEL_EDITING_INSTRUCTIONS',
 );
+
+export const toggleArchivedView = createAction(
+  'TOGGLE_ARCHIVED_VIEW',
+);

@@ -1,5 +1,6 @@
 import isEmpty from 'lodash-es/isEmpty';
-import map from 'lodash-es/map';
+import reduce from 'lodash-es/reduce';
+import concat from 'lodash-es/concat';
 import partial from 'lodash-es/partial';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -21,22 +22,68 @@ const ProjectPicker = createMenu({
       isUserAuthenticated;
   },
 
-  renderItems({currentProjectKey, projectKeys, onChangeCurrentProject}) {
-    return map(projectKeys, projectKey => (
+  renderItems({
+    archivedViewOpen,
+    currentProjectKey,
+    projects,
+    onChangeCurrentProject,
+    onToggleViewArchived,
+  }) {
+    const activeItems = reduce(projects, (activeProjects, project) => {
+      if (!project.archived) {
+        activeProjects.push(
+          <MenuItem
+            isActive={project.projectKey === currentProjectKey}
+            key={project.projectKey}
+            onClick={partial(onChangeCurrentProject, project.projectKey)}
+          >
+            <ProjectPreview projectKey={project.projectKey} />
+          </MenuItem>,
+        );
+      }
+      return activeProjects;
+    }, []);
+
+    const viewButton = (
       <MenuItem
-        isActive={projectKey === currentProjectKey}
-        key={projectKey}
-        onClick={partial(onChangeCurrentProject, projectKey)}
+        key="archivedProjectButton"
+        onClick={onToggleViewArchived}
       >
-        <ProjectPreview projectKey={projectKey} />
+        View Archived Projects
+        {archivedViewOpen ?
+          <span className="u__icon"> &#xf077; </span> :
+          <span className="u__icon"> &#xf078; </span>
+        }
       </MenuItem>
-    ));
+    );
+    let archivedItems;
+    if (archivedViewOpen) {
+      archivedItems = reduce(projects, (archivedProjects, project) => {
+        if (project.archived) {
+          archivedProjects.push(
+            <MenuItem
+              isActive={project.projectKey === currentProjectKey}
+              key={project.projectKey}
+              onClick={partial(onChangeCurrentProject, project.projectKey)}
+            >
+              <ProjectPreview projectKey={project.projectKey} />
+            </MenuItem>,
+          );
+        }
+        return archivedProjects;
+      }, []);
+    } else {
+      archivedItems = null;
+    }
+    return concat(activeItems, viewButton, archivedItems);
   },
 })(ProjectPickerButton);
 
 ProjectPicker.propTypes = {
+  archivedViewOpen: PropTypes.bool.isRequired,
   currentProjectKey: PropTypes.string,
-  projectKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  projects: PropTypes.array.isRequired,
+  onToggleViewArchived: PropTypes.func.isRequired,
 };
 
 ProjectPicker.defaultProps = {
