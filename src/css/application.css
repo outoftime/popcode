@@ -297,10 +297,9 @@ body {
 
 .top-bar__menu-item_sticky {
   position: sticky;
-  bottom: 0px;
+  bottom: 0;
   background-color: var(--color-low-contrast-gray);
 }
-
 
 .top-bar__drop-down-button {
   padding-left: 0.5em;
