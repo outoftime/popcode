@@ -1,6 +1,5 @@
 import isEmpty from 'lodash-es/isEmpty';
 import reduce from 'lodash-es/reduce';
-import concat from 'lodash-es/concat';
 import partial from 'lodash-es/partial';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -29,9 +28,19 @@ const ProjectPicker = createMenu({
     onChangeCurrentProject,
     onToggleViewArchived,
   }) {
-    const activeItems = reduce(projects, (activeProjects, project) => {
-      if (!project.archived) {
-        activeProjects.push(
+    const items = reduce(projects, (projectItems, project) => {
+      if (!archivedViewOpen && !project.archived) {
+        projectItems.push(
+          <MenuItem
+            isActive={project.projectKey === currentProjectKey}
+            key={project.projectKey}
+            onClick={partial(onChangeCurrentProject, project.projectKey)}
+          >
+            <ProjectPreview projectKey={project.projectKey} />
+          </MenuItem>,
+        );
+      } else if (archivedViewOpen) {
+        projectItems.push(
           <MenuItem
             isActive={project.projectKey === currentProjectKey}
             key={project.projectKey}
@@ -41,41 +50,30 @@ const ProjectPicker = createMenu({
           </MenuItem>,
         );
       }
-      return activeProjects;
+      return projectItems;
     }, []);
 
-    const viewButton = (
+    items.push(
       <MenuItem
+        isSticky
         key="archivedProjectButton"
         onClick={onToggleViewArchived}
       >
-        View Archived Projects
+
         {archivedViewOpen ?
-          <span className="u__icon"> &#xf077; </span> :
-          <span className="u__icon"> &#xf078; </span>
+          <div>
+            Hide Archived Projects
+            <span className="u__icon"> &#xf077; </span>
+          </div> :
+          <div>
+            View Archived Projects
+            <span className="u__icon"> &#xf078; </span>
+          </div>
         }
-      </MenuItem>
+      </MenuItem>,
     );
-    let archivedItems;
-    if (archivedViewOpen) {
-      archivedItems = reduce(projects, (archivedProjects, project) => {
-        if (project.archived) {
-          archivedProjects.push(
-            <MenuItem
-              isActive={project.projectKey === currentProjectKey}
-              key={project.projectKey}
-              onClick={partial(onChangeCurrentProject, project.projectKey)}
-            >
-              <ProjectPreview projectKey={project.projectKey} />
-            </MenuItem>,
-          );
-        }
-        return archivedProjects;
-      }, []);
-    } else {
-      archivedItems = null;
-    }
-    return concat(activeItems, viewButton, archivedItems);
+
+    return items;
   },
 })(ProjectPickerButton);
 

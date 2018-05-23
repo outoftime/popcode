@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -13,7 +14,11 @@ export default function ProjectPreview({
   return (
     <div>
       <div className="project-preview">
-        <div className="project-preview__label">
+        <div
+          className={classnames('project-preview__label', {
+            'project-preview__label_archived': project.archived,
+          })}
+        >
           {preview.slice(0, MAX_LENGTH)}
         </div>
         {project.archived ?
