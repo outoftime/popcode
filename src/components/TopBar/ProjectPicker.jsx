@@ -26,10 +26,11 @@ const ProjectPicker = createMenu({
     currentProjectKey,
     projects,
     onChangeCurrentProject,
+    onProjectUnArchived,
     onToggleViewArchived,
   }) {
     const items = reduce(projects, (projectItems, project) => {
-      if (!archivedViewOpen && !project.archived) {
+      if (!project.archived) {
         projectItems.push(
           <MenuItem
             isActive={project.projectKey === currentProjectKey}
@@ -39,12 +40,12 @@ const ProjectPicker = createMenu({
             <ProjectPreview projectKey={project.projectKey} />
           </MenuItem>,
         );
-      } else if (archivedViewOpen) {
+      } else if (archivedViewOpen && project.archived) {
         projectItems.push(
           <MenuItem
             isActive={project.projectKey === currentProjectKey}
             key={project.projectKey}
-            onClick={partial(onChangeCurrentProject, project.projectKey)}
+            onClick={partial(onProjectUnArchived, project.projectKey)}
           >
             <ProjectPreview projectKey={project.projectKey} />
           </MenuItem>,
@@ -81,6 +82,7 @@ ProjectPicker.propTypes = {
   archivedViewOpen: PropTypes.bool.isRequired,
   currentProjectKey: PropTypes.string,
   projects: PropTypes.array.isRequired,
+  onProjectUnArchived: PropTypes.func.isRequired,
   onToggleViewArchived: PropTypes.func.isRequired,
 };
 

@@ -16,6 +16,8 @@ import {
   gistNotFound,
   projectCreated,
   projectsLoaded,
+  changeCurrentProject as changeProject,
+  createProject as createNewProject,
 } from '../actions/projects';
 import {
   snapshotImported,
@@ -26,7 +28,7 @@ import {
 import {saveCurrentProject, saveProjectWithKey} from '../util/projectUtils';
 import {loadGistFromId} from '../clients/github';
 import {loadAllProjects, loadProjectSnapshot} from '../clients/firebase';
-import {getCurrentUserId} from '../selectors';
+import {getCurrentUserId, getCurrentProjectKey} from '../selectors';
 
 export function* applicationLoaded(action) {
   if (isString(action.payload.gistId)) {
@@ -114,11 +116,17 @@ export function* projectExported({payload: {exportType}}) {
 
 export function* archiveProject({payload: {projectKey}}) {
   const state = yield select();
+  const currentProjectKey = getCurrentProjectKey(state);
+  if (projectKey === currentProjectKey) {
+    yield put(createNewProject());
+  }
+
   yield call(saveProjectWithKey, state, projectKey);
 }
 
 export function* unArchiveProject({payload: {projectKey}}) {
   const state = yield select();
+  yield put(changeProject(projectKey));
   yield call(saveProjectWithKey, state, projectKey);
 }
 

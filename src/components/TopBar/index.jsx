@@ -57,6 +57,7 @@ export default function TopBar({
   onExportRepo,
   onExportToClassroom,
   onLogOut,
+  onProjectUnArchived,
   onStartGithubLogIn,
   onStartGoogleLogIn,
   onStartEditingInstructions,
@@ -108,6 +109,7 @@ export default function TopBar({
         projectKeys={projectKeys}
         projects={projects}
         onChangeCurrentProject={onChangeCurrentProject}
+        onProjectUnArchived={onProjectUnArchived}
         onToggleViewArchived={onToggleViewArchived}
       />
       <CurrentUser
@@ -165,6 +167,7 @@ TopBar.propTypes = {
   onExportRepo: PropTypes.func.isRequired,
   onExportToClassroom: PropTypes.func.isRequired,
   onLogOut: PropTypes.func.isRequired,
+  onProjectUnArchived: PropTypes.func.isRequired,
   onStartEditingInstructions: PropTypes.func.isRequired,
   onStartGithubLogIn: PropTypes.func.isRequired,
   onStartGoogleLogIn: PropTypes.func.isRequired,

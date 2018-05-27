@@ -34,6 +34,7 @@ import {
   toggleLibrary,
   toggleTopBarMenu,
   toggleArchivedView,
+  unArchiveProject,
   logIn,
   logOut,
 } from '../actions';
@@ -133,6 +134,11 @@ function mapDispatchToProps(dispatch) {
     onToggleViewArchived() {
       dispatch(toggleArchivedView());
     },
+
+    onProjectUnArchived(projectKey) {
+      dispatch(unArchiveProject(projectKey));
+    },
+
   };
 }
 
