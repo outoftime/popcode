@@ -1843,7 +1843,11 @@ bower@^1.7.9:
   version "1.8.4"
   resolved "https://registry.yarnpkg.com/bower/-/bower-1.8.4.tgz#e7876a076deb8137f7d06525dc5e8c66db82f28a"
 
-bowser@^1.4.5, bowser@^1.7.3:
+bowser@^1.4.5:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.4.tgz#890c58a2813a9d3243704334fa81b96a5c150c9a"
+
+bowser@^1.7.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.3.tgz#6643ae4d783f31683f6d23156976b74183862162"
 
@@ -2080,9 +2084,9 @@ buffers@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/buffers/-/buffers-0.1.1.tgz#b24579c3bed4d6d396aeee6d9a8ae7f5482ab7bb"
 
-bugsnag-js@^4.0.3:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/bugsnag-js/-/bugsnag-js-4.7.1.tgz#29dc87cfbf9bf3eb014bdd465ec34ddf666ed272"
+bugsnag-js@^4.7.3:
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/bugsnag-js/-/bugsnag-js-4.7.3.tgz#fd81eed6882b629d5f059de5bc916ecd19c82aa1"
   dependencies:
     "@bugsnag/cuid" "^3.0.0"
     "@bugsnag/safe-json-stringify" "^2.1.0"
@@ -5078,9 +5082,15 @@ hast-to-hyperscript@^4.0.0:
     trim "0.0.1"
     unist-util-is "^2.0.0"
 
-hast-util-sanitize@^1.0.0, hast-util-sanitize@^1.1.1:
+hast-util-sanitize@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/hast-util-sanitize/-/hast-util-sanitize-1.1.2.tgz#d10bd6757a21e59c13abc8ae3530dd3b6d7d679e"
+  dependencies:
+    xtend "^4.0.1"
+
+hast-util-sanitize@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hast-util-sanitize/-/hast-util-sanitize-1.2.0.tgz#1a46bc8e8554f4747d219dd1d85f9cb245b1b08d"
   dependencies:
     xtend "^4.0.1"
 
@@ -5335,9 +5345,9 @@ i18next-resource-store-loader@^0.1.1:
     loader-utils "^0.2.11"
     lodash "^4.6.1"
 
-i18next@^11.3.2:
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.3.2.tgz#4a1a7bb14383ba6aed4abca139b03681fc96e023"
+i18next@^11.6.0:
+  version "11.6.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.6.0.tgz#e0047aa3e3a0080f6f318426f90597cbb0d6ddd5"
 
 iconv-lite@0.4.15:
   version "0.4.15"
@@ -7823,6 +7833,10 @@ pify@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
 
+pify@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.0.tgz#db04c982b632fd0df9090d14aaf1c8413cadb695"
+
 pinkie-promise@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
@@ -9664,9 +9678,9 @@ shallow-copy@~0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/shallow-copy/-/shallow-copy-0.0.1.tgz#415f42702d73d810330292cc5ee86eae1a11a170"
 
-shallowequal@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.0.2.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
+shallowequal@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -10278,9 +10292,9 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-strip-markdown@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/strip-markdown/-/strip-markdown-3.0.1.tgz#bf4f1c04d03720ae76a01a111cef941d5255cf88"
+strip-markdown@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/strip-markdown/-/strip-markdown-3.0.2.tgz#240597808c7e6b254791f73eec3e892bb840e883"
 
 structured-source@^3.0.2:
   version "3.0.2"
@@ -10474,9 +10488,9 @@ svgo@^1.0.1:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-sweetalert2@^7.8.6:
-  version "7.22.0"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.22.0.tgz#3b4c049ae2bf7c4a4bdd45241d509e23eaaa6059"
+sweetalert2@^7.26.11:
+  version "7.26.11"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.26.11.tgz#93a78f60bc271a34fde85f52f2139a92d3d8b671"
 
 symbol-observable@^1.2.0:
   version "1.2.0"
