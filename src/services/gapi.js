@@ -42,17 +42,24 @@ export const loadAndConfigureGapi = once(async() => {
       },
     });
   });
+
   await gapi.client.init({
     apiKey: config.firebaseApiKey,
-    clientId: config.firebaseClientId,
     discoveryDocs: DISCOVERY_DOCS,
-    scope: SCOPES.join(' '),
   });
 
   isGapiLoadedAndConfigured = true;
 
   return gapi;
 });
+
+export async function getCurrentUserProfile() {
+  const gapi = await loadAndConfigureGapi();
+  const auth = gapi.auth2.getAuthInstance();
+  const user = auth.currentUser.get();
+  const profile = user.getBasicProfile();
+  return profile;
+}
 
 export function getGapiSync() {
   if (!isGapiLoadedAndConfigured) {
@@ -62,4 +69,28 @@ export function getGapiSync() {
   }
 
   return window.gapi;
+}
+
+export async function authorize() {
+  const gapi = getGapiSync();
+  const authResponse = await new Promise((resolve, reject) => {
+    gapi.auth2.authorize(
+      {
+        client_id: config.firebaseClientId,
+        prompt: 'select_account',
+        response_type: 'id_token token',
+        scope: SCOPES.join(' '),
+      },
+      (response) => {
+        if (response.error) {
+          reject(new Error(response.error));
+        } else {
+          resolve(response);
+        }
+      },
+    );
+  });
+  gapi.client.setToken(authResponse);
+  debugger;
+  return authResponse;
 }

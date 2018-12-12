@@ -14,6 +14,7 @@ import {
   signOut,
   startSessionHeartbeat,
 } from '../clients/firebase';
+import {getCurrentUserProfile} from '../services/gapi';
 import {makeLoginState} from '../channels';
 import {notificationTriggered} from '../actions/ui';
 import {userAuthenticated, userLoggedOut} from '../actions/user';
@@ -36,6 +37,8 @@ export function* handleInitialAuth(user) {
     yield call(signOut);
     return;
   }
+
+  // const currentUserProfile = yield call(getCurrentUserProfile);
 
   yield put(userAuthenticated(user, credentials));
 }
@@ -128,6 +131,7 @@ export default function* manageUserState(loginState = makeLoginState()) {
         ]);
         yield call(handleAuthChange, user, {newCredential: credential});
       } catch (e) {
+        debugger;
         yield handleAuthError(e);
       }
     }

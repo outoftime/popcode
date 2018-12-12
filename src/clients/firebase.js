@@ -14,8 +14,7 @@ import {bugsnagClient} from '../util/bugsnag';
 import config from '../config';
 import retryingFailedImports from '../util/retryingFailedImports';
 import {
-  getGapiSync,
-  loadAndConfigureGapi,
+  authorize as authorizeGoogle,
   SCOPES as GOOGLE_SCOPES,
 } from '../services/gapi';
 
@@ -203,19 +202,16 @@ async function signInWithGithub() {
 }
 
 async function signInWithGoogle() {
-  const gapi = getGapiSync();
-  const googleUser =
-    await gapi.auth2.getAuthInstance().signIn({prompt: 'select_account'});
+  const response = await authorizeGoogle();
+  const {id_token: idToken} = response;
   const googleCredential =
-    googleAuthProvider.credential(googleUser.getAuthResponse().id_token);
-  return auth.signInAndRetrieveDataWithCredential(googleCredential);
+    googleAuthProvider.credential(idToken);
+  const fbResponse = await auth.signInAndRetrieveDataWithCredential(googleCredential);
+  debugger;
+  return fbResponse;
 }
 
 export async function signOut() {
-  const gapi = await loadAndConfigureGapi();
-  if (await gapi.auth2.getAuthInstance().isSignedIn.get()) {
-    gapi.auth2.getAuthInstance().signOut();
-  }
   return auth.signOut();
 }
 
