@@ -13,11 +13,13 @@ import '@firebase/auth';
 import {bugsnagClient} from '../util/bugsnag';
 import config from '../config';
 import retryingFailedImports from '../util/retryingFailedImports';
+import {SCOPES as GOOGLE_SCOPES} from '../services/gapi';
+
 import {
-  getGapiSync,
-  loadAndConfigureGapi,
-  SCOPES as GOOGLE_SCOPES,
-} from '../services/gapi';
+  isSignedIn as isGoogleClientSignedIn,
+  signIn as signInToGoogleClient,
+  signOut as signOutOfGoogleClient,
+} from './googleAuth';
 
 const GITHUB_SCOPES = ['gist', 'public_repo', 'read:user', 'user:email'];
 const VALID_SESSION_UID_COOKIE = 'firebaseAuth.validSessionUid';
@@ -203,20 +205,18 @@ async function signInWithGithub() {
 }
 
 async function signInWithGoogle() {
-  const gapi = getGapiSync();
-  const googleUser =
-    await gapi.auth2.getAuthInstance().signIn({prompt: 'select_account'});
+  const googleUser = await signInToGoogleClient();
   const googleCredential =
     googleAuthProvider.credential(googleUser.getAuthResponse().id_token);
   return auth.signInAndRetrieveDataWithCredential(googleCredential);
 }
 
 export async function signOut() {
-  const gapi = await loadAndConfigureGapi();
-  if (await gapi.auth2.getAuthInstance().isSignedIn.get()) {
-    gapi.auth2.getAuthInstance().signOut();
+  const promises = [auth.signOut()];
+  if (await isGoogleClientSignedIn()) {
+    promises.push(signOutOfGoogleClient());
   }
-  return auth.signOut();
+  return Promise.all(promises);
 }
 
 export async function saveUserCredential({

@@ -1,8 +1,10 @@
 import {all, call, fork, put, race, take} from 'redux-saga/effects';
+import find from 'lodash-es/find';
 import isEmpty from 'lodash-es/isEmpty';
 import isError from 'lodash-es/isError';
 import isNil from 'lodash-es/isNil';
 import isString from 'lodash-es/isString';
+import isUndefined from 'lodash-es/isUndefined';
 import reject from 'lodash-es/reject';
 
 import {bugsnagClient} from '../util/bugsnag';
@@ -17,6 +19,7 @@ import {
 import {makeLoginState} from '../channels';
 import {notificationTriggered} from '../actions/ui';
 import {userAuthenticated, userLoggedOut} from '../actions/user';
+import {getCurrentUser as getCurrentGoogleUser} from '../clients/googleAuth';
 
 export function* handleInitialAuth(user) {
   if (isNil(user)) {
@@ -35,6 +38,19 @@ export function* handleInitialAuth(user) {
   if (isEmpty(credentials)) {
     yield call(signOut);
     return;
+  }
+
+  const googleProviderData =
+    find(user.providerData, {providerId: 'google.com'});
+  if (!isUndefined(googleProviderData)) {
+    const currentGoogleUser = yield call(getCurrentGoogleUser);
+    if (
+      isNil(currentGoogleUser) ||
+        currentGoogleUser.getId() !== googleProviderData.uid
+    ) {
+      yield call(signOut);
+      return;
+    }
   }
 
   yield put(userAuthenticated(user, credentials));
