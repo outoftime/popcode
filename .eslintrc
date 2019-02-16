@@ -1,4 +1,39 @@
 {
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "globals": {
+    "__dirname": true
+  },
+  "overrides": [
+    {
+      "env": {
+        "browser": false,
+        "es6": true,
+        "node": true,
+        "jest": true
+      },
+      "files": ["**/__tests__/*.js"],
+      "rules": {
+      },
+      "plugins": [
+        "import",
+        "jest",
+        "react",
+        "promise",
+        "private-props"
+      ]
+    }
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "import",
+    "react",
+    "promise",
+    "private-props"
+  ],
   "rules": {
     "accessor-pairs": [
       "error"
@@ -911,20 +946,6 @@
       "never"
     ]
   },
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "parser": "babel-eslint",
-  "globals": {
-    "__dirname": true
-  },
-  "plugins": [
-    "import",
-    "react",
-    "promise",
-    "private-props"
-  ],
   "settings": {
     "import/resolver": "webpack",
     "react": {

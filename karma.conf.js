@@ -28,7 +28,7 @@ module.exports = function configure(config) {
       'test/index.js': ['webpack', 'sourcemap'],
     },
 
-    webpack: webpackConfiguration('test'),
+    webpack: webpackConfiguration('test-deprecated'),
 
     reporters: ['dots'],
 
