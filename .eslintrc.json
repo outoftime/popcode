@@ -428,7 +428,11 @@
     "yoda": ["warn", "never"]
   },
   "settings": {
-    "import/resolver": "webpack",
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    },
     "react": {
       "version": "16.13.1"
     }
