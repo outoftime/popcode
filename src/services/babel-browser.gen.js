@@ -16,6 +16,7 @@ function getPluginNamesFromPresetEnv() {
 
   const result = babel.transformSync('', {
     sourceType: 'script',
+    configFile: false,
     presets: [
       [
         presetEnv,

@@ -351,11 +351,6 @@ module.exports = (env = process.env.NODE_ENV || 'development') => {
     },
 
     resolve: {
-      alias: {
-        'github-api$': 'github-api/dist/components/GitHub.js',
-        'github-api': 'github-api/dist/components',
-        'html-inspector$': 'html-inspector/html-inspector.js',
-      },
       extensions: ['.mjs', '.js', '.jsx', '.json'],
     },
     devtool,

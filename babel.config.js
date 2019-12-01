@@ -26,6 +26,15 @@ module.exports = api => {
   ];
   if (isJest) {
     plugins.push('babel-plugin-dynamic-import-node');
+  } else {
+    plugins.push([
+      'babel-plugin-module-resolver',
+      {
+        alias: {
+          'html-inspector': 'html-inspector/html-inspector.js',
+        },
+      },
+    ]);
   }
 
   return {

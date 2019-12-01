@@ -363,7 +363,7 @@
     "yoda": ["warn", "never"]
   },
   "settings": {
-    "import/resolver": "webpack",
+    "import/resolver": {"babel-module": {}},
     "react": {
       "version": "16.12.0"
     }
