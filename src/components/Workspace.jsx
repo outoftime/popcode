@@ -4,12 +4,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import {DraggableCore} from 'react-draggable';
-import bindAll from 'lodash-es/bindAll';
-import clone from 'lodash-es/clone';
-import includes from 'lodash-es/includes';
-import isNull from 'lodash-es/isNull';
-import partial from 'lodash-es/partial';
-import some from 'lodash-es/some';
+import bindAll from 'lodash/bindAll';
+import clone from 'lodash/clone';
+import includes from 'lodash/includes';
+import isNull from 'lodash/isNull';
+import partial from 'lodash/partial';
+import some from 'lodash/some';
 import i18next from 'i18next';
 import classnames from 'classnames';
 

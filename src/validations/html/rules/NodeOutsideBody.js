@@ -5,7 +5,7 @@
 // * Any text that is inside the <html> element but not part
 //   of the <head> or <body> tags
 
-import findLastIndex from 'lodash-es/findLastIndex';
+import findLastIndex from 'lodash/findLastIndex';
 
 import Code from './Code';
 

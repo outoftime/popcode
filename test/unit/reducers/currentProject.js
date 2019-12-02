@@ -1,5 +1,5 @@
 import test from 'tape-catch';
-import partial from 'lodash-es/partial';
+import partial from 'lodash/partial';
 import Immutable from 'immutable';
 
 import reducerTest from '../../helpers/reducerTest';

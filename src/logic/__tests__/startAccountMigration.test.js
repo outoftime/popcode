@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs';
-import reduce from 'lodash-es/reduce';
+import reduce from 'lodash/reduce';
 
 import rootReducer from '../../reducers';
 import startAccountMigration from '../startAccountMigration';

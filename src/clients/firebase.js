@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie';
-import isEmpty from 'lodash-es/isEmpty';
-import isNil from 'lodash-es/isNil';
-import isNull from 'lodash-es/isNull';
-import omit from 'lodash-es/omit';
-import values from 'lodash-es/values';
+import isEmpty from 'lodash/isEmpty';
+import isNil from 'lodash/isNil';
+import isNull from 'lodash/isNull';
+import omit from 'lodash/omit';
+import values from 'lodash/values';
 import uuid from 'uuid/v4';
-import once from 'lodash-es/once';
+import once from 'lodash/once';
 import * as firebase from 'firebase/app'; // eslint-disable-line import/no-namespace
 import 'firebase/analytics';
 import 'firebase/auth';

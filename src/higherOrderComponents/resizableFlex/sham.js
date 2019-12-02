@@ -1,7 +1,7 @@
 import {List} from 'immutable';
 import React from 'react';
-import times from 'lodash-es/times';
-import noop from 'lodash-es/noop';
+import times from 'lodash/times';
+import noop from 'lodash/noop';
 
 export default function resizableFlex(size) {
   const props = {

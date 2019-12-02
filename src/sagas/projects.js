@@ -8,9 +8,9 @@ import {
   throttle,
   takeLatest,
 } from 'redux-saga/effects';
-import isNull from 'lodash-es/isNull';
-import isString from 'lodash-es/isString';
-import reduce from 'lodash-es/reduce';
+import isNull from 'lodash/isNull';
+import isString from 'lodash/isString';
+import reduce from 'lodash/reduce';
 
 import {
   gistImported,

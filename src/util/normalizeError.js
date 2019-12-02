@@ -1,7 +1,7 @@
-import get from 'lodash-es/get';
-import keys from 'lodash-es/keys';
-import isEmpty from 'lodash-es/isEmpty';
-import assign from 'lodash-es/assign';
+import get from 'lodash/get';
+import keys from 'lodash/keys';
+import isEmpty from 'lodash/isEmpty';
+import assign from 'lodash/assign';
 import i18next from 'i18next';
 
 import bowser from '../services/bowser';

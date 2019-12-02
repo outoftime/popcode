@@ -1,6 +1,6 @@
 /* eslint react/prop-types: "off" */
-import isUndefined from 'lodash-es/isUndefined';
-import isNull from 'lodash-es/isNull';
+import isUndefined from 'lodash/isUndefined';
+import isNull from 'lodash/isNull';
 
 import PropTypes from 'prop-types';
 import React, {Fragment} from 'react';

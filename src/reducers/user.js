@@ -1,7 +1,7 @@
 import {Map} from 'immutable';
-import find from 'lodash-es/find';
-import isUndefined from 'lodash-es/isUndefined';
-import reduce from 'lodash-es/reduce';
+import find from 'lodash/find';
+import isUndefined from 'lodash/isUndefined';
+import reduce from 'lodash/reduce';
 
 import {
   AccountMigration,

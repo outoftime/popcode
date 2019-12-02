@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect';
-import includes from 'lodash-es/includes';
-import map from 'lodash-es/map';
-import partition from 'lodash-es/partition';
+import includes from 'lodash/includes';
+import map from 'lodash/map';
+import partition from 'lodash/partition';
 
 import {LANGUAGES} from '../util/editor';
 

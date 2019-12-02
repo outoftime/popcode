@@ -2,8 +2,8 @@
 
 import classnames from 'classnames';
 import {connect} from 'react-redux';
-import constant from 'lodash-es/constant';
-import noop from 'lodash-es/noop';
+import constant from 'lodash/constant';
+import noop from 'lodash/noop';
 import useOnClickOutside from 'use-onclickoutside';
 import preventClickthrough from 'react-prevent-clickthrough';
 import PropTypes from 'prop-types';

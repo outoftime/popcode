@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import uuid from 'uuid/v4';
-import throttle from 'lodash-es/throttle';
+import throttle from 'lodash/throttle';
 
 import Preview from '../components/Preview';
 import {

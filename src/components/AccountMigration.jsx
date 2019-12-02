@@ -1,6 +1,6 @@
 import {faExchangeAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import isNull from 'lodash-es/isNull';
+import isNull from 'lodash/isNull';
 import PropTypes from 'prop-types';
 import React from 'react';
 import i18next from 'i18next';

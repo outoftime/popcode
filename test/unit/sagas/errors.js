@@ -1,5 +1,5 @@
 import test from 'tape-catch';
-import isEqual from 'lodash-es/isEqual';
+import isEqual from 'lodash/isEqual';
 import {createMockTask} from '@redux-saga/testing-utils';
 import {testSaga} from 'redux-saga-test-plan';
 import Scenario from '../../helpers/Scenario';

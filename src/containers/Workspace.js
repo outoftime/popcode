@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import every from 'lodash-es/every';
+import every from 'lodash/every';
 
 import Workspace from '../components/Workspace';
 import {

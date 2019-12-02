@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import bindAll from 'lodash-es/bindAll';
-import constant from 'lodash-es/constant';
-import throttle from 'lodash-es/throttle';
-import noop from 'lodash-es/noop';
+import bindAll from 'lodash/bindAll';
+import constant from 'lodash/constant';
+import throttle from 'lodash/throttle';
+import noop from 'lodash/noop';
 
 import {EditorLocation} from '../records';
 import {createAceEditor, createAceSessionWithoutWorker} from '../util/ace';

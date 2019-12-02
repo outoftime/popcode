@@ -1,4 +1,4 @@
-import constant from 'lodash-es/constant';
+import constant from 'lodash/constant';
 
 export {default as performance, default as analytics} from 'lodash/noop';
 

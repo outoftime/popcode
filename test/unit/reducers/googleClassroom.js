@@ -1,6 +1,6 @@
 import test from 'tape';
-import partial from 'lodash-es/partial';
-import tap from 'lodash-es/tap';
+import partial from 'lodash/partial';
+import tap from 'lodash/tap';
 
 import reducer from '../../../src/reducers/googleClassroom';
 import reducerTest from '../../helpers/reducerTest';

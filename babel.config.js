@@ -32,6 +32,7 @@ module.exports = api => {
       {
         alias: {
           'html-inspector': 'html-inspector/html-inspector.js',
+          '^lodash/(.+)': 'lodash-es/\\1',
         },
       },
     ]);

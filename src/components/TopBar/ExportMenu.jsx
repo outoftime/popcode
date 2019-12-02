@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import tap from 'lodash-es/tap';
+import tap from 'lodash/tap';
 import PropTypes from 'prop-types';
 import React from 'react';
 

@@ -1,5 +1,5 @@
-import defaultsDeep from 'lodash-es/defaultsDeep';
-import isNil from 'lodash-es/isNil';
+import defaultsDeep from 'lodash/defaultsDeep';
+import isNil from 'lodash/isNil';
 
 export function gistData({
   html,

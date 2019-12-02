@@ -1,4 +1,4 @@
-import map from 'lodash-es/map';
+import map from 'lodash/map';
 import PropTypes from 'prop-types';
 import React, {Fragment} from 'react';
 import i18next from 'i18next';

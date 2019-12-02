@@ -1,6 +1,6 @@
 import {all, call, put, select, throttle, takeEvery} from 'redux-saga/effects';
 
-import every from 'lodash-es/every';
+import every from 'lodash/every';
 
 import {getCurrentProject, getErrors} from '../selectors';
 import compileProject from '../util/compileProject';

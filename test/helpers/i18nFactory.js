@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import tap from 'lodash-es/tap';
+import tap from 'lodash/tap';
 
 import applyCustomI18nFormatters from '../../src/util/i18nFormatting';
 

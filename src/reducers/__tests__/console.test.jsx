@@ -1,6 +1,6 @@
-import forEach from 'lodash-es/forEach';
-import map from 'lodash-es/map';
-import reduce from 'lodash-es/reduce';
+import forEach from 'lodash/forEach';
+import map from 'lodash/map';
+import reduce from 'lodash/reduce';
 
 import reducer from '../console';
 import {Error} from '../../records';

@@ -1,11 +1,11 @@
 import {connectAdvanced} from 'react-redux';
-import at from 'lodash-es/at';
-import findIndex from 'lodash-es/findIndex';
-import isNull from 'lodash-es/isNull';
-import map from 'lodash-es/map';
-import merge from 'lodash-es/merge';
+import at from 'lodash/at';
+import findIndex from 'lodash/findIndex';
+import isNull from 'lodash/isNull';
+import map from 'lodash/map';
+import merge from 'lodash/merge';
 import shallowequal from 'shallowequal';
-import times from 'lodash-es/times';
+import times from 'lodash/times';
 import {createSelector, defaultMemoize} from 'reselect';
 
 import {makeGetResizableFlexGrow} from '../../selectors';

@@ -2,7 +2,7 @@ import {faChevronUp} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import React from 'react';
 import PropTypes from 'prop-types';
-import partial from 'lodash-es/partial';
+import partial from 'lodash/partial';
 import classnames from 'classnames';
 
 export default function CollapsedComponent({

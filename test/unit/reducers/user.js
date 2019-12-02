@@ -1,6 +1,6 @@
 import test from 'tape-catch';
-import partial from 'lodash-es/partial';
-import tap from 'lodash-es/tap';
+import partial from 'lodash/partial';
+import tap from 'lodash/tap';
 import {Map} from 'immutable';
 
 import reducerTest from '../../helpers/reducerTest';

@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import noop from 'lodash-es/noop';
+import noop from 'lodash/noop';
 
 function ErrorBoundary({children}) {
   return React.createElement(Fragment, null, children);

@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 import {faCheck} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import map from 'lodash-es/map';
-import partial from 'lodash-es/partial';
+import map from 'lodash/map';
+import partial from 'lodash/partial';
 import PropTypes from 'prop-types';
 import React from 'react';
 

@@ -1,6 +1,6 @@
-import isEmpty from 'lodash-es/isEmpty';
-import isNull from 'lodash-es/isNull';
-import trim from 'lodash-es/trim';
+import isEmpty from 'lodash/isEmpty';
+import isNull from 'lodash/isNull';
+import trim from 'lodash/trim';
 
 import retryingFailedImports from '../util/retryingFailedImports';
 import performWithRetries from '../util/performWithRetries';

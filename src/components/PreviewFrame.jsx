@@ -2,8 +2,8 @@ import Channel from 'jschannel';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import bindAll from 'lodash-es/bindAll';
-import constant from 'lodash-es/constant';
+import bindAll from 'lodash/bindAll';
+import constant from 'lodash/constant';
 import i18next from 'i18next';
 
 import bowser from '../services/bowser';

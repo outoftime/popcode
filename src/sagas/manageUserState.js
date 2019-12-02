@@ -1,11 +1,11 @@
 import {all, call, fork, put, race, take} from 'redux-saga/effects';
-import difference from 'lodash-es/difference';
-import isEmpty from 'lodash-es/isEmpty';
-import isError from 'lodash-es/isError';
-import isNil from 'lodash-es/isNil';
-import isString from 'lodash-es/isString';
-import map from 'lodash-es/map';
-import reject from 'lodash-es/reject';
+import difference from 'lodash/difference';
+import isEmpty from 'lodash/isEmpty';
+import isError from 'lodash/isError';
+import isNil from 'lodash/isNil';
+import isString from 'lodash/isString';
+import map from 'lodash/map';
+import reject from 'lodash/reject';
 
 import {bugsnagClient} from '../util/bugsnag';
 import {

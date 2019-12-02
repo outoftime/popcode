@@ -1,7 +1,7 @@
 import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import bindAll from 'lodash-es/bindAll';
-import isNil from 'lodash-es/isNil';
+import bindAll from 'lodash/bindAll';
+import isNil from 'lodash/isNil';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import preventClickthrough from 'react-prevent-clickthrough';

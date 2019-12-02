@@ -1,4 +1,4 @@
-import partialRight from 'lodash-es/partialRight';
+import partialRight from 'lodash/partialRight';
 
 import javascript from '../javascript';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isNull from 'lodash-es/isNull';
+import isNull from 'lodash/isNull';
 
 import {toReact as markdownToReact} from '../util/markdown';
 

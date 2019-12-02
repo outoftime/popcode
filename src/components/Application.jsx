@@ -1,4 +1,4 @@
-import mapValues from 'lodash-es/mapValues';
+import mapValues from 'lodash/mapValues';
 import React from 'react';
 import {Provider} from 'react-redux';
 

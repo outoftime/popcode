@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import classnames from 'classnames';
-import isEmpty from 'lodash-es/isEmpty';
-import partial from 'lodash-es/partial';
+import isEmpty from 'lodash/isEmpty';
+import partial from 'lodash/partial';
 
 import {EditorLocation} from '../records';
 

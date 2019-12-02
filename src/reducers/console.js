@@ -1,6 +1,6 @@
-import constant from 'lodash-es/constant';
-import inRange from 'lodash-es/inRange';
-import isNil from 'lodash-es/isNil';
+import constant from 'lodash/constant';
+import inRange from 'lodash/inRange';
+import isNil from 'lodash/isNil';
 import {handleActions} from 'redux-actions';
 
 import {ConsoleState, ConsoleEntry, Error} from '../records';

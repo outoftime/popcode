@@ -1,7 +1,7 @@
 import test from 'tape-catch';
 import almostEqual from 'almost-equal';
-import every from 'lodash-es/every';
-import zip from 'lodash-es/zip';
+import every from 'lodash/every';
+import zip from 'lodash/zip';
 
 import calculateFlexGrowAfterDrag from '../../../../src/higherOrderComponents/resizableFlex/calculateFlexGrowAfterDrag';
 

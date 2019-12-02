@@ -1,5 +1,5 @@
 import loadjs from 'loadjs';
-import once from 'lodash-es/once';
+import once from 'lodash/once';
 import promiseRetry from 'promise-retry';
 
 import config from '../config';

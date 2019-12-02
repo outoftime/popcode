@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import {faBan, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import partial from 'lodash-es/partial';
+import partial from 'lodash/partial';
 import React from 'react';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
